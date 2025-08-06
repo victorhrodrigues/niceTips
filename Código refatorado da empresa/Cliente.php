@@ -2,22 +2,15 @@
 
 class Cliente
 {
-    private string $email;
+    private Email $email;
+    private CPF $cpf;
+    private Idade $idade;
 
-    public function __construct(string $email)
+    public function __construct(Email $email, CPF $cpf, Idade $idade)
     {   
-        $this->validacaoEmail($email);
         $this->email = $email;
+        $this->cpf = $cpf;
+        $this->idade = $idade;
     }
 
-    /*
-        Validação do email
-    */
-    
-    private function validacaoEmail(string $email): void
-    {
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-            throw new InvalidArgumentException("Email inválido");
-        }
-    }
 }

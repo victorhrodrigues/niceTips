@@ -1,40 +1,15 @@
 <?php
 
-class Cliente
+class CPF
 {
-    private string $email;
-    /*
     private string $cpf;
-    private int $idade;
-    */
 
-    public function __construct(string $email /*,string $cpf, int $idade */)
+    public function __construct(string $cpf)
     {   
-        $this->validacaoEmail($email);
-        $this->email = $email;
-
-        /*
-
-        $this->validacaoCPF($cpf);
-        $this->validacaoIdade($idade);
-
-        $this->cpf = $cpf; 
-        $this->idade = $idade;
-        */
+        $this->validacao($cpf);
+        $this->cpf = $cpf;
     }
 
-    /*
-        Validação do email
-    */
-    
-    private function validacaoEmail(string $email): void
-    {
-        if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
-            throw new InvalidArgumentException("Email inválido");
-        }
-    }
-
-    /*
     private function validacao(string $cpf)
     {
         // limpa o campo cpf pegando apenas os números 
@@ -67,12 +42,4 @@ class Cliente
         }
     }
     
-    private function validacao(int $idade): void
-    {
-        if ($idade <= 18 || $idade > 115)
-        {
-            throw new DomainException("A idade é inválida");
-        }
-    }
-    */
 }
